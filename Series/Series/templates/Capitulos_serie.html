@@ -1,0 +1,44 @@
+{% extends "Plantilla_Base.html" %}
+
+{% block content %}
+
+{% load static %}
+
+  <!-- Page Content -->
+  <div class="container">
+
+    <!-- Call to Action Well -->
+    <div class="card text-white bg-secondary my-5 py-0 text-center">
+      <div class="card-body">
+        <p class="text-white m-0">Capitulos de {{Nombre_Tem}}</p>
+      </div>
+    </div>
+
+    <!-- Content Row -->
+    <div class="row">
+      
+      {% for cap in Capitulos %}
+      
+      <div class="col-md-4 mb-5">
+        <div class="card h-100">
+          <div class="card-body">
+            <h2 class="card-title">{{cap.nombre_capitulo}}</h2>
+            <p class="card-text">{{cap.descripcion}}.</p>
+          </div>
+          <div class="card-footer">
+            {% if cap.url %}
+            <a href={{cap.url}} target="_blank" class="btn btn-primary btn-sm">Ver Capitulo</a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+
+      {% endfor %}
+
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container -->
+
+{% endblock %}

@@ -1,0 +1,59 @@
+
+{% extends "Plantilla_Base.html" %}
+
+{% block content %}
+
+{% load static %}
+
+
+  <!-- Page Content -->
+  <div class="container">
+
+    <!-- Heading Row -->
+    <div class="row align-items-center my-5">
+      <div class="col-lg-7">
+        <img class="img-fluid rounded mb-4 mb-lg-0" src="{% static serie.image %}" alt="">
+      </div>
+      <!-- /.col-lg-8 -->
+      <div class="col-lg-5">
+        <h1 class="font-weight-light">{{serie.nombre}}</h1>
+        <p>{{serie.descripcion_corta}}!</p>
+      </div>
+      <!-- /.col-md-4 -->
+    </div>
+    <!-- /.row -->
+
+    <!-- Call to Action Well -->
+    <div class="card text-white bg-secondary my-5 py-0 text-center">
+      <div class="card-body">
+        <p class="text-white m-0">Temporadas</p>
+      </div>
+    </div>
+
+    <!-- Content Row -->
+    <div class="row">
+      
+      {% for tem in Temporadas_serie %}
+      
+      <div class="col-md-4 mb-5">
+        <div class="card h-100">
+          <div class="card-body">
+            <h2 class="card-title">{{tem.nombre}}</h2>
+            <p class="card-text">{{tem.descripcion_corta}}.</p>
+          </div>
+          <div class="card-footer">
+            <a href="{% url 'Eleccion_Capitulo' tem.nombre %}" class="btn btn-primary btn-sm">Ver Temporada</a>
+          </div>
+        </div>
+      </div>
+
+      {% endfor %}
+
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container -->
+
+{% endblock %}
+
